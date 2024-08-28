@@ -13,3 +13,17 @@ services:
     volumes:
       - ./rabbitmq:/var/lib/rabbitmq
     restart: always
+
+  publisher:
+    build:
+      dockerfile: src/Dockerfile.pub
+    env_file:
+      - ./src/.env
+    restart: always
+
+  consumer:
+    build:
+      dockerfile: src/Dockerfile.cons
+    env_file:
+      - ./src/.env
+    restart: always

@@ -19,7 +19,6 @@ class RabbitConnection:
     def __enter__(self):
         self.connection = Connection(self.RABBIT_URL)
         self.connection.connect()
-        self.connection.connected()
         return self.connection
 
     def __exit__(self, exc_type, exc_val, exc_tb):
